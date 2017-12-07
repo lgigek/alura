@@ -10,12 +10,12 @@ var alturaEValido = true;
 
 if (peso.textContent <= 0 || peso.textContent >= 500){
     pesoEValido = false;
-    imc.textContent("Peso inválido");
+    imc.textContent = "Peso inválido";
 }
 
 if (altura.textContent <= 0 || altura.textContent >= 3.00){
     alturaEValido = false;
-    imc.textContent("Altura inválida");
+    imc.textContent = "Altura inválida";
 }
 
 if (pesoEValido && alturaEValido){

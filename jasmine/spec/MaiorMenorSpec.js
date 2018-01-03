@@ -24,4 +24,12 @@ describe("Maior e Menor", function(){
         expect(algoritmo.pegaMenor()).toEqual(6);
     });
 
+    it("deve retornar maior e menor com apenas um número",function(){
+        var algoritmo = new MaiorMenor();
+        algoritmo.encontra([9]);
+
+        expect(algoritmo.pegaMaior()).toEqual(9);
+        expect(algoritmo.pegaMenor()).toEqual(9);
+    });
+
 });

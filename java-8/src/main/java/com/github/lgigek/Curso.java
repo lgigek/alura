@@ -1,8 +1,7 @@
 package com.github.lgigek;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Curso {
 
@@ -38,12 +37,24 @@ class ExemploCursos {
 
         cursos.sort(Comparator.comparing(Curso::getAlunos));
 
-        int sum = cursos.stream()
+        cursos.stream()
                 .filter(c -> c.getAlunos() >= 100)
                 .mapToInt(Curso::getAlunos)
-                .sum();
+                .average()
+                .ifPresent(m -> System.out.println("Média de alunos: " + m));
 
-        System.out.println(sum);
+        cursos.stream()
+                .filter(c -> c.getAlunos() >= 100)
+                .findAny()
+                .ifPresent(c -> System.out.println("Curso com mais de 100 alunos: " + c.getNome()));
+
+        cursos.stream()
+                .filter(c -> c.getAlunos() >= 100)
+                .collect(Collectors.toMap(
+                        c -> c.getNome(),
+                        c -> c.getAlunos()))
+                .forEach((nome, alunos) -> System.out.println(nome + " tem " + alunos));
+
     }
 
 }

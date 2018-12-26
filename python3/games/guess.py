@@ -43,3 +43,7 @@ def play():
                 print("You inputted a number lesser than the secret one")
 
     print("End of the game")
+
+
+if __name__ == "__main__":
+    play()
